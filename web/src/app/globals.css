@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --font-sans: var(--font-sans);
   --font-serif: var(--font-serif);
@@ -43,62 +41,6 @@
 }
 
 :root {
-  color-scheme: light;
-
-  /* Warm ivory canvas */
-  --background: rgba(242, 236, 225, 1);
-  --foreground: rgba(40, 34, 27, 1);
-
-  /* Clearly separated surfaces */
-  --card: rgba(255, 252, 245, 1);
-  --popover: rgba(255, 253, 248, 1);
-  --secondary: rgba(225, 215, 199, 1);
-  --muted: rgba(232, 223, 209, 1);
-  --muted-foreground: rgba(105, 92, 76, 1);
-
-  /* Antique gold */
-  --primary: rgba(143, 101, 45, 1);
-  --primary-foreground: rgba(255, 252, 245, 1);
-
-  /* Soft olive accent */
-  --accent: rgba(211, 213, 193, 1);
-
-  /* Borders and focus */
-  --border: rgba(102, 83, 60, 0.22);
-  --input: rgba(102, 83, 60, 0.3);
-  --ring: rgba(143, 101, 45, 0.75);
-
-  /* Feedback */
-  --destructive: rgba(180, 54, 42, 1);
-  --overlay: rgba(24, 20, 16, 0.68);
-
-  /* Cinematic overlays */
-  --hero-shade: linear-gradient(
-    90deg,
-    rgba(20, 16, 12, 0.78) 0%,
-    rgba(20, 16, 12, 0.42) 48%,
-    rgba(20, 16, 12, 0.04) 100%
-  );
-
-  --hero-floor: linear-gradient(
-    0deg,
-    rgba(242, 236, 225, 1) 0%,
-    rgba(242, 236, 225, 0.72) 18%,
-    rgba(242, 236, 225, 0) 48%
-  );
-
-  /* Editorial palette */
-  --ink: rgba(40, 34, 27, 1);
-  --brown: rgba(73, 54, 37, 1);
-  --olive: rgba(103, 109, 79, 1);
-  --cream: rgba(242, 236, 225, 1);
-  --beige: rgba(205, 188, 160, 1);
-  --gold: rgba(143, 101, 45, 1);
-}
-
-.dark {
-  color-scheme: dark;
-
   /* Deep warm espresso */
   --background: rgba(25, 22, 19, 1);
   --foreground: rgba(246, 239, 226, 1);
@@ -156,7 +98,7 @@
   }
 
   body {
-    @apply bg-primary text-foreground;
+    @apply bg-background text-foreground;
   }
 
   html {

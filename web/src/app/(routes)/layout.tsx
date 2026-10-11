@@ -9,7 +9,7 @@ export default function RoutesLayout({ children }: Props) {
   return (
     <>
       <Header />
-      <main className="min-h-screen py-16">{children}</main>
+      <main className="min-h-screen">{children}</main>
       <Footer />
     </>
   );

@@ -3,10 +3,8 @@ import PageHeading from "@/components/shared/PageHeading";
 
 export default function StoryPage() {
   return (
-    <section>
-      <Container>
-        <PageHeading title="Three acts." titleHighlighted="One missing key." />
-      </Container>
-    </section>
+    <Container className="pt-32 lg:pt-48 pb-16">
+      <PageHeading title="Three acts." titleHighlighted="One missing key." />
+    </Container>
   );
 }

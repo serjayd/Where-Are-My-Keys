@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Manrope, Cormorant_Garamond, IBM_Plex_Mono } from "next/font/google";
+import { Amiri, Montserrat, Shanti } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/shared/ThemeProvider";
 
-const manropeSans = Manrope({
+const fontSans = Shanti({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400"],
 });
 
-const cormorantSerif = Cormorant_Garamond({
+const fontSerif = Amiri({
   variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
-const ibmMono = IBM_Plex_Mono({
+const fontMono = Montserrat({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -29,18 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${manropeSans.variable} ${ibmMono.variable} ${cormorantSerif.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} h-full antialiased`}
     >
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

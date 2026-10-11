@@ -3,10 +3,8 @@ import PageHeading from "@/components/shared/PageHeading";
 
 export default function DevelopersPage() {
   return (
-    <section>
-      <Container>
-        <PageHeading title="Secrets" titleHighlighted="Held by." />
-      </Container>
-    </section>
+    <Container className="pt-32 lg:pt-48 pb-16">
+      <PageHeading title="Secrets" titleHighlighted="Held by." />
+    </Container>
   );
 }

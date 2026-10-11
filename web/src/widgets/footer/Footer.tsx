@@ -8,7 +8,7 @@ import Container from "@/components/shared/Container";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
+    <footer className="border-t border-border bg-primary-foreground">
       <Container className="py-8 lg:py-12">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
           <div className="flex flex-col items-start">

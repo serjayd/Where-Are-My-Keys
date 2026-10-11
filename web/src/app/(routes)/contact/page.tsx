@@ -3,10 +3,8 @@ import PageHeading from "@/components/shared/PageHeading";
 
 export default function ContactPage() {
   return (
-    <section>
-      <Container>
-        <PageHeading title="Get in" titleHighlighted="Touch." />
-      </Container>
-    </section>
+    <Container className="pt-32 lg:pt-48 pb-16">
+      <PageHeading title="Get in" titleHighlighted="Touch." />
+    </Container>
   );
 }

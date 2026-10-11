@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Play, ArrowUpRight, Key } from "lucide-react";
 
-import { ModeToggle } from "@/components/shared/ModeToggle";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -18,6 +17,8 @@ import { HEADER_DATA } from "@/config/header.data";
 
 export default function HeaderMobile() {
   const pathname = usePathname();
+
+  if (!pathname) return null;
 
   return (
     <Sheet>
@@ -107,15 +108,6 @@ export default function HeaderMobile() {
               </Link>
             </SheetClose>
           </Button>
-
-          <div className="mt-4 flex items-center justify-between rounded-xl border border-border bg-background px-4 py-3">
-            <div>
-              <p className="text-sm font-medium">Appearance</p>
-              <p className="text-xs text-muted-foreground">Switch theme</p>
-            </div>
-
-            <ModeToggle />
-          </div>
         </div>
       </SheetContent>
     </Sheet>

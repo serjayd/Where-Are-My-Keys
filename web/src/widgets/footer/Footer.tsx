@@ -1,17 +1,50 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowUpRight, Play } from "lucide-react";
+import { motion } from "motion/react";
 
 import Logo from "@/components/shared/Logo";
 import { Button } from "@/components/ui/button";
 import { FOOTER_DATA } from "@/config/footer.data";
 import Container from "@/components/shared/Container";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut" as const,
+    },
+  },
+};
+
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-primary-foreground">
       <Container className="py-8 lg:py-12">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
-          <div className="flex flex-col items-start">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20"
+        >
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col items-start"
+          >
             <Logo />
 
             <p className="mt-5 max-w-sm text-sm leading-7 text-muted-foreground">
@@ -26,11 +59,11 @@ export default function Footer() {
                 <ArrowUpRight className="ml-2 size-4" />
               </Link>
             </Button>
-          </div>
+          </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-8 sm:gap-12">
+          <div className="grid gap-8 sm:grid-cols-2 sm:gap-12">
             {FOOTER_DATA.map((section) => (
-              <div key={section.title}>
+              <motion.div key={section.title} variants={itemVariants}>
                 <h2 className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-foreground">
                   {section.title}
                 </h2>
@@ -48,24 +81,40 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        <div className="my-8 h-px bg-border lg:my-12" />
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          whileInView={{ opacity: 1, scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="my-8 h-px origin-left bg-border lg:my-12"
+        />
 
-        <div className="mt-10 flex flex-col gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 All rights reserved.</p>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
+          className="mt-10 flex flex-col gap-4 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between"
+        >
+          <motion.p variants={itemVariants}>
+            © 2026 All rights reserved.
+          </motion.p>
 
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1 transition-colors hover:text-foreground"
-          >
-            Back to top
-            <ArrowUpRight className="-rotate-45 size-3.5" />
-          </Link>
-        </div>
+          <motion.div variants={itemVariants}>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1 transition-colors hover:text-foreground"
+            >
+              Back to top
+              <ArrowUpRight className="-rotate-45 size-3.5" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </Container>
     </footer>
   );

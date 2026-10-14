@@ -12,8 +12,9 @@ export const FOOTER_DATA = [
     title: "Information",
     links: [
       { label: "Frequently Asked Questions", href: "/faq" },
-      { label: "Contact & Newsletter", href: "/contact" },
-      { label: "Meet the Developers", href: "/developers" },
+      { label: "Contact Us", href: "/contact" },
+      { label: "The House", href: "/house" },
+      { label: "Developers", href: "/developers" },
     ],
   },
 ];

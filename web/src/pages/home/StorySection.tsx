@@ -1,24 +1,35 @@
+"use client";
+
 import Container from "@/components/shared/Container";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function StorySection() {
+  const [isIconsShown, setIsIconsShown] = useState(false);
+
   return (
     <section className="py-16">
       <Container>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
-          <h2 className="font-serif text-4xl leading-[0.95] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          <h2 className="font-serif cursor-default text-4xl leading-[0.95] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             Somebody has been
             <br />
-            <span className="italic text-primary">tidying up.</span>
+            <span
+              onMouseEnter={() => setIsIconsShown(true)}
+              onMouseLeave={() => setIsIconsShown(false)}
+              className="italic cursor-pointer text-primary"
+            >
+              tidying up.
+            </span>
           </h2>
           <div className="max-w-xl">
-            <h3 className="mb-4 font-serif text-2xl font-medium sm:text-3xl">
+            <h3 className="mb-4 font-serif text-2xl cursor-default font-medium sm:text-3xl">
               Leo lives alone. Or at least, he thinks he does.
             </h3>
 
-            <p className="mb-8 text-lg leading-relaxed text-muted-foreground">
+            <p className="mb-8 text-lg leading-relaxed cursor-default text-muted-foreground">
               Behind every clean counter, every recovered sock and every
               mysteriously misplaced key is Theo — a Domovyk, the unseen
               guardian of the home.
@@ -34,11 +45,16 @@ export default function StorySection() {
           </div>
         </div>
         <div className="group relative mt-12 overflow-hidden rounded-xl border border-warm-black/10 sm:mt-20">
-          <div className="relative aspect-video w-full sm:aspect-21/9">
+          <div
+            className={`relative aspect-video w-full sm:aspect-21/9 transition-all duration-700 ${
+              isIconsShown ? "opacity-10 scale-[1.02]" : "opacity-100 scale-100"
+            }`}
+          >
             <Image
               src="/story-banner.png"
-              alt="A glimpse into Leo's mysterious home"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              alt="A glimpse into Leo's mysterious home"
               className="object-cover object-center transition-transform duration-700 ease-out rounded-xl group-hover:scale-[1.03]"
               priority={false}
             />

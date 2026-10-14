@@ -49,7 +49,7 @@ export default function HeroSection() {
             className="group px-8 py-5 font-mono hover:border-primary hover:bg-primary/5 hover:text-primary"
             asChild
           >
-            <Link href="#story">
+            <Link href="/story">
               Uncover the Story
               <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>

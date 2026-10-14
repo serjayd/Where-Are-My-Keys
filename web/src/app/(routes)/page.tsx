@@ -1,3 +1,4 @@
+import FloatingIconsBackground from "@/components/shared/FloatingIconsBackground";
 import BannerSection from "@/pages/home/BannerSection";
 import HeroSection from "@/pages/home/HeroSection";
 import StorySection from "@/pages/home/StorySection";
@@ -7,8 +8,11 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StorySection />
-      <TrailerSection />
+      <div className="relative">
+        <FloatingIconsBackground />
+        <StorySection />
+        <TrailerSection />
+      </div>
       <BannerSection />
     </>
   );

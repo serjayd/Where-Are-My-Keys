@@ -4,7 +4,7 @@ import { ArrowUpRight } from "lucide-react";
 
 export default function TrailerSection() {
   return (
-    <section className="py-16">
+    <section id="trailer" className="py-16">
       <Container>
         <div className="mb-6 flex items-center gap-3">
           <span className="h-px w-8 bg-primary" />
@@ -13,7 +13,7 @@ export default function TrailerSection() {
           </span>
         </div>
 
-        <div className="group relative overflow-hidden border border-cream/10 bg-black shadow-2xl shadow-black/30">
+        <div className="group opacity relative overflow-hidden border border-cream/10 bg-black shadow-2xl shadow-black/30">
           <div className="relative aspect-video w-full">
             <iframe
               className="absolute inset-0 h-full w-full"

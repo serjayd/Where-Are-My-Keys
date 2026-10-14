@@ -29,7 +29,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable} h-full antialiased scroll-smooth`}
     >
       <body>{children}</body>
     </html>

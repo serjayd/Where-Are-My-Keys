@@ -5,6 +5,25 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { motion } from "motion/react";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: 30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.7, ease: "easeOut" as const },
+  },
+};
 
 export default function StorySection() {
   const [isIconsShown, setIsIconsShown] = useState(false);
@@ -13,7 +32,17 @@ export default function StorySection() {
     <section className="py-16">
       <Container>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
-          <h2 className="font-serif cursor-default text-4xl leading-[0.95] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
+          <motion.h2
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.15,
+              ease: "easeOut",
+            }}
+            className="font-serif cursor-default text-4xl leading-[0.95] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          >
             Somebody has been
             <br />
             <span
@@ -23,28 +52,52 @@ export default function StorySection() {
             >
               tidying up.
             </span>
-          </h2>
-          <div className="max-w-xl">
-            <h3 className="mb-4 font-serif text-2xl cursor-default font-medium sm:text-3xl">
+          </motion.h2>
+          <motion.div
+            className="max-w-xl"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <motion.h3
+              variants={itemVariants}
+              className="mb-4 cursor-default font-serif text-2xl font-medium sm:text-3xl"
+            >
               Leo lives alone. Or at least, he thinks he does.
-            </h3>
+            </motion.h3>
 
-            <p className="mb-8 text-lg leading-relaxed cursor-default text-muted-foreground">
+            <motion.p
+              variants={itemVariants}
+              className="mb-8 cursor-default text-lg leading-relaxed text-muted-foreground"
+            >
               Behind every clean counter, every recovered sock and every
               mysteriously misplaced key is Theo — a Domovyk, the unseen
               guardian of the home.
-            </p>
+            </motion.p>
 
-            <Link
-              href="/story"
-              className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:text-foreground"
-            >
-              Discover their story
-              <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
-            </Link>
-          </div>
+            <motion.div variants={itemVariants}>
+              <Link
+                href="/story"
+                className="group inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-primary transition-colors hover:text-foreground"
+              >
+                Discover their story
+                <ArrowUpRight className="size-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              </Link>
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="group relative mt-12 overflow-hidden rounded-xl border border-warm-black/10 sm:mt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{
+            duration: 0.5,
+            delay: 0.15,
+            ease: "easeOut",
+          }}
+          className="group relative mt-12 overflow-hidden rounded-xl border border-warm-black/10 sm:mt-20"
+        >
           <div
             className={`relative aspect-video w-full sm:aspect-21/9 transition-all duration-700 ${
               isIconsShown ? "opacity-10 scale-[1.02]" : "opacity-100 scale-100"
@@ -72,7 +125,7 @@ export default function StorySection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

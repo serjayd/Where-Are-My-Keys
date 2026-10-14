@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "motion/react";
+
 interface Props {
   title: string;
   titleHighlighted: string;
@@ -5,9 +8,18 @@ interface Props {
 
 export default function PageHeading({ title, titleHighlighted }: Props) {
   return (
-    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase font-serif font-semibold mb-8">
+    <motion.h1
+      initial={{ opacity: 0, y: -16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{
+        duration: 0.5,
+        ease: "easeOut",
+      }}
+      className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl uppercase font-serif font-semibold mb-8"
+    >
       {title} <br />
       <span className="italic text-primary">{titleHighlighted}</span>
-    </h1>
+    </motion.h1>
   );
 }

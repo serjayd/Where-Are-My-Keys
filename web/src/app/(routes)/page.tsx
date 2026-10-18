@@ -8,11 +8,16 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <div className="relative">
+
+      <div className="relative isolate">
         <FloatingIconsBackground />
-        <StorySection />
-        <TrailerSection />
+        <div className="relative z-10">
+          <StorySection />
+        </div>
       </div>
+
+      <TrailerSection />
+
       <BannerSection />
     </>
   );

@@ -33,6 +33,11 @@ export default function GameField({
       transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
       className="relative aspect-video w-full overflow-hidden rounded-2xl"
     >
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-background/40 text-center sm:hidden">
+        <p className="text-sm font-medium">
+          For the best view, <br /> rotate your device to landscape
+        </p>
+      </div>
       <Image
         src="/house.png"
         alt="Picture of the room"

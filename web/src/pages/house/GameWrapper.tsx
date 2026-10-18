@@ -65,19 +65,24 @@ export default function GameWrapper() {
       ) : (
         <>
           <section className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <div className="flex items-center gap-4">
-              <span className="h-px w-8 bg-primary" />
-              <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary">
-                The Room
-              </span>
-            </div>
-
-            <div className="flex items-center gap-6">
+            <div className="flex-1 flex items-center justify-between gap-4 w-full">
+              <div className="flex items-center gap-4">
+                <span className="h-px w-8 bg-primary" />
+                <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-primary">
+                  The Room
+                </span>
+              </div>
               <span className="font-mono text-sm uppercase text-primary">
                 {foundObjects.length} / {OBJECTS.length} Clues
               </span>
+            </div>
 
-              <Button variant="outline" onClick={stopSearch}>
+            <div className="w-full md:w-fit">
+              <Button
+                variant="outline"
+                className="w-full md:w-fit"
+                onClick={stopSearch}
+              >
                 <X className="mr-2 h-4 w-4" />
                 Exit Search
               </Button>

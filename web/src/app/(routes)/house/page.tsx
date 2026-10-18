@@ -1,10 +1,12 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
+import GameWrapper from "@/pages/house/GameWrapper";
 
 export default function HousePage() {
   return (
     <Container className="pt-32 lg:pt-48 pb-16">
       <PageHeading title="Come in." titleHighlighted="Look closer." />
+      <GameWrapper />
     </Container>
   );
 }

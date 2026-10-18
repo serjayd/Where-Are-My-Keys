@@ -104,7 +104,7 @@ export default function StorySection() {
             }`}
           >
             <Image
-              src="/story-banner.png"
+              src="/house.png"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               alt="A glimpse into Leo's mysterious home"

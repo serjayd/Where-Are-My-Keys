@@ -1,5 +1,6 @@
-import { Link } from "lucide-react";
+import { Link as LinkIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   item: {
@@ -35,14 +36,14 @@ export default function MemberCard({ item }: Props) {
         {socials.length > 0 && (
           <div className="flex shrink-0 items-center gap-3">
             {socials.map((social) => (
-              <a
+              <Link
                 key={social.platform}
                 href={social.url}
                 target="_blank"
                 className=" flex size-10 items-center justify-center rounded-full border border-border bg-secondary text-primary opacity-100 transition-all duration-300 hover:border-primary md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
               >
-                <Link className="size-5" />
-              </a>
+                <LinkIcon className="size-5" />
+              </Link>
             ))}
           </div>
         )}

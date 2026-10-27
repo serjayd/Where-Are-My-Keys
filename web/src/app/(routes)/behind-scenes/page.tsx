@@ -1,10 +1,16 @@
 import Container from "@/components/shared/Container";
 import PageHeading from "@/components/shared/PageHeading";
+import BehindScenesHero from "@/pages/behind-scenes/BehindScenesHero";
+import ProductionNotes from "@/pages/behind-scenes/ProductionNotes";
+import ProductionStill from "@/pages/behind-scenes/ProductionStill";
 
 export default function BehindScenesPage() {
   return (
-    <Container className="pt-32 lg:pt-48 pb-16">
+    <Container className="pt-32 pb-16 lg:pt-48">
       <PageHeading title="Making the" titleHighlighted="Invisible visible." />
+      <BehindScenesHero />
+      <ProductionNotes />
+      <ProductionStill />
     </Container>
   );
 }
